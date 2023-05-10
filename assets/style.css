@@ -6,11 +6,14 @@ body {
 	font-family: 'Inter';
 	font-style: normal;
 }
-.top-header {
+a, button{
+	cursor: pointer;
+}
+.header {
 	background-color: white;
-	position: sticky;
+	position: fixed;
 	top:0;
-	z-index: 1000;
+	z-index: 2;
 	display: flex;
 	justify-content: space-between;
 	padding-inline: 100px;
@@ -18,7 +21,7 @@ body {
 	align-items: center;
 }
 
-.top-header .name {
+.header .name {
 	font-size: 26px;
 }
 
@@ -90,13 +93,71 @@ body {
 	font-size: 14px;
 }
 
+
+.carousel-indicators{
+
+}
+
+
+.carousel-inner{
+
+}
+
+.carousel-item{
+	width:100%;
+}
+
+
+#gallery_buttons{
+	margin-bottom: 50px;
+}
+
+.gallery_button{
+	font-family: "Inter";
+	font-size:16px;
+	margin: 0 10px;
+	background-color: white;
+	border: none;
+	padding:10px 15px;
+}
+
+.gallery_button:focus{
+	background-color: #BEB45A;
+	color:white;
+}
+
 #gallery {
-	/*	min-height: 100vh; */
+	min-height: 100vh; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .title{
 	text-align: center;
 	padding-block: 2em;
 }
+
+
+
+
+
+
+.gallery{
+	width:75%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	
+	grid-gap: 15px;
+
+}
+
+.gallery-item {
+	width:100%;
+	object-fit: cover;
+	
+}
+
+
 .gallery .nav {
 	justify-content: center;
 }
@@ -119,13 +180,7 @@ body {
 	padding-bottom: 100%;
 
 }
-.gallery-item {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	padding: .5em;
-}
+
 .mg-prev, .mg-next {
 	width: 30px;
 	height: 30px;
@@ -172,13 +227,14 @@ body {
 }
 
 #services .container {
-	justify-content: space-between;
+	justify-content: space-around;
 	display: flex;
 	padding : 2em 0;
 
 }
 
 .service {
+
 	background-color: white;
 	max-width: 390px;
 	width: 30%;
@@ -190,7 +246,7 @@ body {
 	z-index: 1;
 }
 
-#contact {
+footer {
 	margin: auto;
 	background-color: #D8D3A8 ;
 	position: relative;
@@ -198,7 +254,7 @@ body {
 	padding-block: 100px;
 }
 
-#contact .container {
+footer .container {
 	display: flex;
 }
 .picture.right::before {
@@ -248,7 +304,7 @@ input[type="submit"] {
 	.picture {
 		flex : 2;
 	}
-	#about, #contact .container {
+	#about, footer .container {
 		align-items: center;
 	}
 	.about-me__title {
@@ -303,10 +359,10 @@ input[type="submit"] {
 		z-index: 0;
 	}
 
-	#contact .container {
+	footer .container {
 		flex-direction: column;
 	}
-	#contact .picture.right {
+	footer .picture.right {
 		margin-top: 1em;
 	}
 	.picture.right::before {
@@ -320,15 +376,15 @@ input[type="submit"] {
 }
 
 @media all and (max-width: 650px) {
-	.top-header {
+	.header {
 		flex-direction: column;
 		padding-inline: 0;
 	}
-	.top-header .nav, .top-header .nav ul {
+	.header .nav, .header .nav ul {
 		width: 100%;
 		padding: 0 0 0 0;
 	}
-	.top-header .nav li {
+	.header .nav li {
 		flex: 1;
 		padding-block: 1em;
 		text-align: center;
@@ -342,7 +398,7 @@ input[type="submit"] {
 	.service {
 		max-width: 90%;
 	}
-	#about, #contact {
+	#about, footer {
 		padding-inline: 2em;
 		padding-block: 2em;
 	}

@@ -1,6 +1,8 @@
 body {
 	max-width: 1920px;
-	margin: auto;
+	width:100%;
+	margin : auto;
+
 }
 * {
 	font-family: 'Inter';
@@ -9,34 +11,41 @@ body {
 a, button{
 	cursor: pointer;
 }
-.header {
-	background-color: white;
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	position: fixed;
 	top:0;
 	z-index: 2;
-	display: flex;
-	justify-content: space-between;
-	padding-inline: 100px;
-	padding-block: 30px;
-	align-items: center;
+	width: 100vw;
+	max-width: 1920px;
+	padding: 20px 0;
+	background-color: white;
 }
 
-.header .name {
+h1 {
 	font-size: 26px;
+	padding-left: 110px;
+	font-weight: 600;
+}
+nav{
+	padding-right: 5%;	
 }
 
-.nav ul {
+nav ul{
 	display: flex;
 	list-style-type: none;
 	font-size: 14px;
-	margin-bottom: 0;
+
 }
 
-.nav li {
-	padding-inline: 10px;
+nav li {
+	padding-left: 20px;
 }
 
-.nav a {
+nav a {
 	text-decoration: none;
 	color: #000
 }
@@ -93,17 +102,34 @@ a, button{
 	font-size: 14px;
 }
 
-
 .carousel-indicators{
+	position:absolute;
+	display: flex;
 
+	width:100%;
+	max-width: 1920px;
+
+	justify-content: space-between;
+
+	
 }
 
+.tButton{
+	border : none;
+	color : #A79C8E;
+	background-color: rgba(0,0,0,0);
+}
 
+.tButton:hover{
+	color:white;
+}
 .carousel-inner{
-
+	display: flex;	
+	overflow-x: hidden;
+	
 }
 
-.carousel-item{
+.carousel-inner img{
 	width:100%;
 }
 
@@ -214,6 +240,7 @@ a, button{
 	margin: auto;
 	background-color: #A8D5D8 ;
 	position: relative;
+	width:100%;
 }
 #services .container::before{
 	content: ' ';
@@ -376,15 +403,15 @@ input[type="submit"] {
 }
 
 @media all and (max-width: 650px) {
-	.header {
+	header {
 		flex-direction: column;
 		padding-inline: 0;
 	}
-	.header .nav, .header .nav ul {
+	header nav, nav ul {
 		width: 100%;
 		padding: 0 0 0 0;
 	}
-	.header .nav li {
+	nav li {
 		flex: 1;
 		padding-block: 1em;
 		text-align: center;

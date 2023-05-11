@@ -8,6 +8,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<link rel="stylesheet" href="./assets/style.css">
+		<script type="module" src="./main.js"></script>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
@@ -18,8 +20,8 @@
 	
 	<body>
 		<header>
-			<h1 class="name">Nina Carducci</h1>
-			<div class="nav">   
+			<h1>Nina Carducci</h1>
+			<nav>   
 				<ul>
 					<li><a href="#about">À propos</a></li>
 					<li><a href="#gallery">Galerie</a></li>
@@ -27,34 +29,21 @@
 					<li><a href="#contact">Contact</a></li>
 					<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank"><img src="assets/images/instagram.webp" alt="Logo Instagram"></a></li>
 				</ul>
-			</div>
+			</nav>
 		</header>
 		<main>
 
-			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+			<div id="carousel">
 				<div class="carousel-indicators">
-					<button class="tButton leftArrow"><i class="fa-solid fa-2x fa-chevron-left"></i></button>
-            		<button class="tButton rightArrow"><i class="fa-solid fa-2x fa-chevron-right"></i></button>
+					<button class="tButton leftArrow"><i class="fa-solid fa-3x fa-chevron-left"></i></button>
+            		<button class="tButton rightArrow"><i class="fa-solid fa-3x fa-chevron-right"></i></button>
 				</div>
 				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.jpg" class="d-block w-100" alt="Photo d'un homme de dos en costume">
-					</div>
-					<div class="carousel-item">
-						<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.jpg" class="d-block w-100" alt="Photo d'une foule à un événement festif">
-					</div>
-					<div class="carousel-item">
-						<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.jpg" class="d-block w-100" alt="Photo d'un couple à un mariage">
-					</div>
+						<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.jpg" alt="Photo d'un homme de dos en costume">
+						<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.jpg" alt="Photo d'une foule à un événement festif">
+						<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.jpg" alt="Photo d'un couple à un mariage">
 				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
+
 			</div>
 
 			<div id="about">
@@ -63,7 +52,7 @@
 				</div>
 				<div id="about-me">
 					<h2 class="about-me__title">A propos de moi</h2>
-					<h6 class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</h6>
+					<h3 class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</h3>
 					<p>Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
 						C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
 				</div>

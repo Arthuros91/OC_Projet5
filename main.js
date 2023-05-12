@@ -2,11 +2,13 @@
 
 const gallery = $(".gallery");
 const reponse = await fetch('gallery.json')
-const galleryItems = await reponse.json();
+const galleryitem = await reponse.json();
 
-for( let i = 0; i < galleryItems.length; i++ ){
-    const items = galleryItems[i];
-    const img = $("<img>").addClass("gallery-item").attr({src : items.ImageURL, alt : items.alt});
+for( let i = 0; i < galleryitem.length; i++ ){
+    const item = galleryitem[i];
+
+    const img = $("<img>").addClass("gallery-item").attr({src : item.ImageURL, alt : item.alt});
+    
     img.appendTo(gallery);
 }
 

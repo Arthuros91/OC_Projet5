@@ -23,7 +23,7 @@ GenerateGallery(galleryitems);
 
 /* BUTTONS FUNCTIONS */
 
-const btnAll = $(".btnAll").focus();
+
 const btnConcerts = $(".btnConcerts");
 const btnEntreprises = $(".btnEntreprises");
 const btnMariages = $(".btnMariages");

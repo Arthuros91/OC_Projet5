@@ -1,4 +1,14 @@
+/* GALLERY FUNCTIONS */
+
 const gallery = $(".gallery");
+const reponse = await fetch('gallery.json')
+const galleryItems = await reponse.json();
+
+for( let i = 0; i < galleryItems.length; i++ ){
+    const items = galleryItems[i];
+    const img = $("<img>").addClass("gallery-item").attr({src : items.ImageURL, alt : items.alt});
+    img.appendTo(gallery);
+}
 
 
 
@@ -19,6 +29,7 @@ const carousel_img = $(".carousel-inner img");
 const imgSize = carousel_img.width();
 const maxSize = (carousel.children().length - 1) * imgSize;
 
+/* CAROUSEL FUNCTIONS */
 
 var scrollInterval;
 var scrollValue = 0;
@@ -55,3 +66,5 @@ function playScrollAnimation() {
         carousel.animate({ scrollLeft: scrollValue }, 0); 
     }, 5000); 
 }
+
+

@@ -1,58 +1,105 @@
-html{
-	max-width: 100%;
+html,body{
+    font-family: "Inter";
+    font-style: normal;
+    margin: 0;
+    height: 100%;
+    width:100%;
 }
 
-body {
-	
-	max-width:100%;
-	margin : auto;
+li{
+    list-style-type: none;
+    margin-left:15px;
+}
 
+a{
+    text-decoration: none;
+    color:black;
 }
-* {
-	font-family: 'Inter';
-	font-style: normal;
-}
+
 a, button{
 	cursor: pointer;
 }
 
-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	position: fixed;
+/* HEADER */
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
 	top:0;
+    left:0;
 	z-index: 2;
-	max-width: 100vw;
-	width:100%;
+    width:100vw;
+    background-color: white;
 
-	padding: 20px 5%;
-	background-color: white;
 }
 
-h1 {
-	font-size: 30px;
-	font-weight: 400;
-}
-.nav{
-	
-	display: flex;
-	list-style-type: none;
-	font-size: 14px;
+h1{
+    font-weight: 400;
+    font-size: 29px;
+    padding-left:110px;
 }
 
-.nav li {
-	padding-left: 20px;
+ul{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding-block: 30px;
+    padding-right:110px;
 }
 
-.nav a {
-	text-decoration: none;
-	color: #000
+li{
+    list-style-type: none;
+    margin-right:10px;
 }
 
-.social-link img {
+.social-link img{
 	width: 20px;
 }
+
+
+/* MAIN */
+
+    /* Carousel */
+
+.carousel-indicators{
+	position:absolute;
+    z-index: 1;
+	display: flex;
+	top:60%;  
+	width:100vw;
+	justify-content: space-between;	
+}
+
+.tButton{
+	border : none;
+	color : #A79C8E;
+	background-color: rgba(0,0,0,0);
+}
+
+.tButton:hover{
+	color:white;
+}
+
+.leftArrow{
+    padding-left: 10%;
+}
+.rightArrow{
+    padding-right: 10%;
+}
+.carousel-inner{
+	display: flex;	
+	overflow-x: hidden;
+	
+}
+
+.carousel-inner img{
+	width:100%;
+}
+
+
+    /* About */
 
 #about {
 	display: flex;
@@ -102,36 +149,8 @@ h1 {
 	font-size: 14px;
 }
 
-.carousel-indicators{
-	position:absolute;
-	display: flex;
-	top:100px;  
-	width:100%;
 
-	justify-content: space-between;
-
-	
-}
-
-.tButton{
-	border : none;
-	color : #A79C8E;
-	background-color: rgba(0,0,0,0);
-}
-
-.tButton:hover{
-	color:white;
-}
-.carousel-inner{
-	display: flex;	
-	overflow-x: hidden;
-	
-}
-
-.carousel-inner img{
-	width:100%;
-}
-
+    /* Gallery */
 
 #gallery_buttons{
 	margin-bottom: 50px;
@@ -162,11 +181,6 @@ h1 {
 	padding-block: 2em;
 }
 
-
-
-
-
-
 .gallery{
 	width:85%;
 	max-height: 1350px;
@@ -184,32 +198,12 @@ h1 {
 	object-fit: cover;
 }
 
-
 .gallery .nav {
 	justify-content: center;
 }
 
-.item-column {
-	position: relative;
-	margin-bottom: 0 !important;
-	padding: 0;
-}
-.item-column::after{
-	content: "";
-	display: block;
-	padding-bottom: 100%;
 
-}
-
-.mg-prev, .mg-next {
-	width: 30px;
-	height: 30px;
-	border-radius: 00%;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	font-size: 24px;
-}
+/* Quote */
 
 .quote {
 	font-family: 'Spectral';
@@ -222,6 +216,7 @@ h1 {
 	font-family: Spectral;
 	font-style: italic;
 	font-weight: 300;
+    font-size: 29px;
 
 }
 .quote__author {
@@ -230,12 +225,20 @@ h1 {
 	font-size: 22px;
 }
 
+/* Service */
+
 #services {
 	margin: auto;
 	background-color: #A8D5D8 ;
 	position: relative;
 	width:100%;
 }
+
+#services h3, #services h4{
+    font-size: 29px;
+    font-weight: 400;
+}
+
 #services .container::before{
 	content: ' ';
 	background-color: #1C6474;
@@ -250,12 +253,10 @@ h1 {
 #services .container {
 	justify-content: space-around;
 	display: flex;
-	padding : 2em 0;
-
+	padding: 2em 0;
 }
 
 .service {
-
 	background-color: white;
 	max-width: 390px;
 	width: 30%;
@@ -266,6 +267,9 @@ h1 {
 	justify-content: space-between;
 	z-index: 1;
 }
+
+
+/* FOOTER */
 
 footer {
 	margin: auto;
@@ -316,10 +320,14 @@ form textarea {
 	font-size: 1.2em;
 	margin-bottom: 20px;
 }
+
 input[type="submit"] {
 	background-color: #BEB45A;
 	padding: .5em 1em
 }
+
+
+/* MEDIA QUERIES */ 
 
 @media all and (max-width: 1180px) {
 	.picture {
@@ -360,10 +368,12 @@ input[type="submit"] {
 	}
 	#services .container {
 		flex-direction: column;
+        padding: 0 2em;
+        align-items: center;
 	}
 	.service {
 		width: 100%;
-		max-width: 100%;
+		max-width: 90%;
 		height: auto;
 		margin: 2em 0
 	}
@@ -449,5 +459,3 @@ input[type="submit"] {
 
 
 }
-
-

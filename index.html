@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<title>Nina Carducci Photographe</title>
-		<meta charset="UTF-8">
-		<meta description="Blog de Nina Carducci, Photographe Professionnelle">
-		<meta name="description" content="Blog de la photographe Nina Carducci">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<link rel="preload" href="./assets/style.css" as="style" onload="this.rel='stylesheet'">
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-		<script src="./main.js"  type="module"></script>
-		
 
+    <head>
+        <title>Nina Carducci Photographe</title>
+        <meta charset="UTF-8">
+        <meta description="Blog de Nina Carducci, Photographe Professionnelle">
+        <meta name="description" content="Blog de la photographe Nina Carducci">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="./assets/style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script type="module" src="./main.js"></script>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
+        
+        <script rel="preload" src="https://kit.fontawesome.com/582f6c8682.js" crossorigin="anonymous" onload="this.rel='module'"></script>
 
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
-		
-		<script rel="preload" src="https://kit.fontawesome.com/582f6c8682.js" crossorigin="anonymous" onload="this.rel='module'"></script>
-
-	</head>
-	
-	<body>
-		<header>
+    </head>
+    <body>
+        <header>
 			<h1>Nina Carducci</h1>
-			<ul class="nav">
+			<ul>
 				<li><a href="#about">À propos</a></li>
 				<li><a href="#gallery">Galerie</a></li>
 				<li><a href="#services">Service</a></li>
@@ -33,8 +30,9 @@
 				<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank"><img src="assets/images/instagram.webp" alt="Logo Instagram"></a></li>
 			</ul>
 		</header>
-		<main>
 
+
+        <main>
 			<div id="carousel">
 				<div class="carousel-indicators">
 					<button class="tButton leftArrow"><i class="fa-solid fa-3x fa-chevron-left"></i></button>
@@ -45,9 +43,7 @@
 						<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.jpg" alt="Photo d'une foule à un événement festif">
 						<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.jpg" alt="Photo d'un couple à un mariage">
 				</div>
-
 			</div>
-
 			<div id="about">
 				<div class="picture left">
 					<img src="./assets/images/nina.webp" alt="Photo de Nina Carducci dans la forêt">
@@ -71,16 +67,12 @@
 				<div class="gallery" >
 					
 				</div>
-
-			
 			<figure class="quote">
 				<blockquote class="quote__text">
 					Un portrait n’est pas une ressemblance. Dès lors qu’une émotion ou qu’un fait est traduit en photo, il cesse d’être un fait pour devenir une opinion. L’inexactitude n’existe pas en photographie. Toutes les photos sont exactes. Aucune d’elles n’est la vérité.
 				</blockquote>
 				<figcaption class="quote__author">- Richard Avedon</figcaption>
 			</figure>
-
-		
 			<div id="services">
 				<h2 class="title">Mes services</h2>
 				<div class="container">
@@ -93,7 +85,6 @@
 							<h4>350€/demi journée</h4>
 							<span>Matériel, déplacement inclus</span>
 						</div>
-
 					</div>
 					<div class="service">
 						<div class="service__description">
@@ -117,17 +108,16 @@
 					</div>
 				</div>
 			</div>
-			
+		
 			<figure class="quote">
-				<blockquote>
-					<blockquote class="quote__text">De manière inconsciente, je crois, je guette un regard, une expression, des traits ou une nostalgie capable de résumer ou plus exactement de révéler une vie</blockquote>
+				<blockquote class="quote__text">
+                    De manière inconsciente, je crois, je guette un regard, une expression, des traits ou une nostalgie capable de résumer ou plus exactement de révéler une vie.
 				</blockquote>
-				<figcaption class="quote__author">- Richard Avedon</figcaption>
+				<figcaption class="quote__author">- Richard Avedon -</figcaption>
 			</figure>
-			
 		</main>
-
-		<footer>
+        
+        <footer>
 			<div class="container">
 				<div class="form-container">
 					<h3>Une question ? Une demande de devis ?</h3>
@@ -148,6 +138,15 @@
 			</div>
 		</footer>
 
-	</body>
+
+    </body>
+
+
+
+
+
+
+
+
 
 </html>

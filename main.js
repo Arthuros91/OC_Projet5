@@ -2,21 +2,28 @@
 
 const gallery = $(".gallery");
 const reponse = await fetch('gallery.json')
-const galleryitem = await reponse.json();
+const galleryitems = await reponse.json();
 
-for( let i = 0; i < galleryitem.length; i++ ){
-    const item = galleryitem[i];
+function GenerateGallery(items){
+    for( let i = 0; i < items.length; i++ ){
+        const item = items[i];
+        const img = $("<img>").addClass("gallery-item").attr({src : item.ImageURL, alt : item.alt});
+        img.appendTo(gallery);
+    }
 
-    const img = $("<img>").addClass("gallery-item").attr({src : item.ImageURL, alt : item.alt});
-    
-    img.appendTo(gallery);
 }
 
+function UpdateGallery(items){
+    gallery.html("");
+    GenerateGallery(items);  
+};
+
+GenerateGallery(galleryitems);
 
 
 /* BUTTONS FUNCTIONS */
 
-const btnAll = $(".btnAll");
+const btnAll = $(".btnAll").focus();
 const btnConcerts = $(".btnConcerts");
 const btnEntreprises = $(".btnEntreprises");
 const btnMariages = $(".btnMariages");
@@ -25,13 +32,50 @@ const btnPortraits = $(".btnPortraits");
 const leftButton = $(".leftArrow");
 const rightButton = $(".rightArrow");
 
+btnAll.on("click", function(){
+    UpdateGallery(galleryitems);
+    return;
+});
+
+btnConcerts.on("click",function(){
+    const list = galleryitems.filter(function(item){
+        return item.tag === "Concerts";
+    });
+    UpdateGallery(list);
+});
+
+btnEntreprises.on("click",function(){
+    const list = galleryitems.filter(function(item){
+        return item.tag === "Entreprises";
+    });
+    UpdateGallery(list);
+});
+
+btnMariages.on("click",function(){
+    const list = galleryitems.filter(function(item){
+        return item.tag === "Mariages";
+    });
+    UpdateGallery(list);
+});
+
+btnPortraits.on("click",function(){
+    const list = galleryitems.filter(function(item){
+        return item.tag === "Portraits";
+    });
+    UpdateGallery(list);
+});
+
+
+
+
+
+/* CAROUSEL FUNCTIONS */
+
 const carousel = $(".carousel-inner");
 const carousel_img = $(".carousel-inner img");
 
 const imgSize = carousel_img.width();
 const maxSize = (carousel.children().length - 1) * imgSize;
-
-/* CAROUSEL FUNCTIONS */
 
 var scrollInterval;
 var scrollValue = 0;

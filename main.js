@@ -1,8 +1,7 @@
 /* GALLERY FUNCTIONS */
 
 const gallery = $(".gallery");
-const reponse = await fetch('gallery.json')
-const galleryitems = await reponse.json();
+const galleryitems = await $.getJSON("./assets/gallery.json");
 
 function GenerateGallery(items){
     for( let i = 0; i < items.length; i++ ){
@@ -23,7 +22,7 @@ GenerateGallery(galleryitems);
 
 /* BUTTONS FUNCTIONS */
 
-
+const btnAll = $(".btnAll");
 const btnConcerts = $(".btnConcerts");
 const btnEntreprises = $(".btnEntreprises");
 const btnMariages = $(".btnMariages");

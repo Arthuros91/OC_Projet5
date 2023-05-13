@@ -45,11 +45,11 @@ FileETag none
 
 
 # protect the htaccess file
-<files .htaccess>
-order allow,deny
-deny from all
-</files>
+#<files .htaccess>
+#order allow,deny
+#deny from all
+#</files>
 
 
 # protection de la lecture des répertoires
- Options -Indexes
+ #Options -Indexes

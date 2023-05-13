@@ -225,9 +225,11 @@ li{
 }
 
 .quote__text {
+	font-family: "Spectral";
 	font-style: italic;
 	font-weight: 300;
-    font-size: 29px;
+    font-size: 2.5rem;
+	line-height: 1.2;
 
 }
 .quote__author {
@@ -287,6 +289,9 @@ footer {
 	position: relative;
 	padding-inline: 100px;
 	padding-block: 100px;
+}
+footer h3{
+	font-size: 29px;
 }
 
 footer .container {

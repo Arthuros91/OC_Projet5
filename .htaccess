@@ -11,6 +11,23 @@ SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
 #les proxies doivent donner le bon contenu
 Header append Vary User-Agent env=!dont-vary
 
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|xml|gz)$">
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.(ico|jpe?g|png|gif|swf)$">
+        Header set Cache-Control "public"
+    </FilesMatch>
+    <FilesMatch "\.(css)$">
+        Header set Cache-Control "public"
+    </FilesMatch>
+    <FilesMatch "\.(js)$">
+        Header set Cache-Control "private"
+    </FilesMatch>
+    <FilesMatch "\.(x?html?|php)$">
+        Header set Cache-Control "private, must-revalidate"
+    </FilesMatch>
+</IfModule>
 <IfModule mod_expires.c>
   ExpiresActive On
 

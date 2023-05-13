@@ -11,7 +11,8 @@ function GenerateGallery(items) {
     img.className = "gallery-item";
     img.src = item.ImageURL; // Définir la source de l'image
     img.alt = item.alt; // Définir l'attribut alt de l'image
-
+    img.width = "100%";
+    img.height = "auto";
     // Ajouter l'image à la galerie une fois qu'elle est préchargée
     img.onload = function() {
       gallery.append(img);

@@ -4,7 +4,7 @@
     <head>
         <title>Nina Carducci Photographe</title>
         <meta charset="UTF-8">
-        <meta description="Blog de Nina Carducci, Photographe Professionnelle">
+        <meta description="Blog de Nina Carducci, Photographe Professionnelle à Bordeaux">
         <meta name="description" content="Blog de la photographe Nina Carducci">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -17,11 +17,30 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
         
         <script rel="preload" src="https://kit.fontawesome.com/582f6c8682.js" crossorigin="anonymous" onload="this.rel='module'"></script>
+		<meta name="theme-color" content="#F6D2B8" />
+
+
+		<meta itemprop="name" content="Nina Carducci" />
+		<meta itemprop="description" content="Blog de Nina Carducci, Photographe Professionnelle" />
+		<meta itemprop="image" content="./assets/images/nina.webp" />
+		
+		<meta property="og:title" content="Nina Carducci Photographe" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="Blog de Nina Carducci, Photographe Professionnelle" />
+		<meta property="author" content="Nina Carducci" />
+		<meta property="og:image" content="./assets/images/nina.webp" />
+		<meta property="og:locale" content="fr_FR" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="Blog de Nina Carducci" />
+		<meta name="twitter:creator" content="Nina Carduccis" />
+		<meta name="twitter:title" content="Blog de Nina Carducci, Photographe Professionnelle" content="Les balises meta indispensables pour les réseaux sociaux : Facebook, Twitter, Google+, Pinterest" />
+		<meta name="twitter:image" content="./assets/images/nina.webp" />
 
     </head>
     <body>
         <header>
-			<h1>Nina Carducci</h1>
+			<h1 itemprop=”name>Nina Carducci</h1>
 			<ul>
 				<li><a href="#about">À propos</a></li>
 				<li><a href="#gallery">Galerie</a></li>
@@ -35,8 +54,8 @@
         <main>
 			<div id="carousel">
 				<div class="carousel-indicators">
-					<button class="tButton leftArrow"><i class="fa-solid fa-3x fa-chevron-left"></i></button>
-            		<button class="tButton rightArrow"><i class="fa-solid fa-3x fa-chevron-right"></i></button>
+					<button class="tButton leftArrow" title="Photo prècèdente"><i class="fa-solid fa-3x fa-chevron-left"></i></button>
+            		<button class="tButton rightArrow" title="Photo suivante"><i class="fa-solid fa-3x fa-chevron-right"></i></button>
 				</div>
 				<div class="carousel-inner">
 						<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.jpg" alt="Photo d'un homme de dos en costume">
@@ -46,7 +65,7 @@
 			</div>
 			<div id="about">
 				<div class="picture left">
-					<img src="./assets/images/nina.webp" alt="Photo de Nina Carducci dans la forêt">
+					<img itemprop="image" src="./assets/images/nina.webp" alt="Photo de Nina Carducci dans la forêt">
 				</div>
 				<div id="about-me">
 					<h2>A propos de moi</h2>
@@ -135,6 +154,20 @@
 				<div class="picture right">
 					<img src="./assets/images/camera.webp" alt="Photo d'un appareil photo">
 				</div>
+
+				<div id="infos" itemscope itemtype="https://schema.org/LocalBusiness">
+					<h1><span itemprop="name">Nina Carducci</span></h1>
+					<span itemprop="description"> Photographe professionnelle pour tous types d'événements à Bordeaux</span>
+					<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+					  <span itemprop="streetAddress">68 avenue Alsace-Lorraine</span>
+					  <span itemprop="addressLocality">Bordeaux, France</span>
+					</div>
+					<span itemprop="telephone">05 56 67 78 89</span>
+					<meta itemprop="openingHours" itemtype="https://schema.org/Text" content="Mo-Fr 10:00-19:00"/>
+					<span itemprop="priceRange">$</span>
+					<img itemprop="image" src="./assets/images/nina.webp" alt="Photo de Nina Carducci dans la forêt">
+				</div>
+
 			</div>
 		</footer>
 

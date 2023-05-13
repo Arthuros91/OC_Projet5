@@ -336,7 +336,9 @@ input[type="submit"] {
 	padding: .5em 1em
 }
 
-
+#infos{
+	display:none;
+}
 /* MEDIA QUERIES */ 
 
 @media all and (max-width: 1180px) {

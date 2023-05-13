@@ -8,6 +8,7 @@ function GenerateGallery(items) {
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     const img = new Image(); // Créer un nouvel objet Image
+    img.className = "gallery-item";
     img.src = item.ImageURL; // Définir la source de l'image
     img.alt = item.alt; // Définir l'attribut alt de l'image
 

@@ -1,6 +1,6 @@
 /* GALLERY FUNCTIONS */
 
-const gallery = $(".gallery");
+const gallery = document.querySelector(".gallery");
 
 // Fonction appelée lors du clic sur le bouton
 function filtrerImagesParTag(tag) {

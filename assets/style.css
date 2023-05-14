@@ -99,6 +99,8 @@ li{
 .carousel-inner{
 	display: flex;	
 	overflow-x: hidden;
+	width: 100vw;
+	height:auto;
 	
 }
 

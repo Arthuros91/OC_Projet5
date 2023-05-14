@@ -1,33 +1,30 @@
 /* GALLERY FUNCTIONS */
 
 const gallery = document.querySelector(".gallery");
+const images = document.getElementsByClassName('gallery-item');
 
-// Fonction appelée lors du clic sur le bouton
+
+function generateGallery(){
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i];
+        image.style.display = 'block';
+    }
+}
+
 function filtrerImagesParTag(tag) {
-    // Sélectionner toutes les images de la galerie
-    var images = document.getElementsByClassName('gallery-item');
-    console.log(images);
-    // Parcourir toutes les images
     for (var i = 0; i < images.length; i++) {
       var image = images[i];
       var imageTag = image.getAttribute('data-gallery-tag');
-      console.log(images[i]);
-      // Vérifier si le tag de l'image correspond au tag sélectionné
       if (imageTag === tag) {
-        // Afficher l'image
         image.style.display = 'block';
       } else {
-        // Masquer l'image
         image.style.display = 'none';
       }
     }
-  }
+}
   
-  // Exemple d'utilisation : filtrer les images ayant le tag "Entreprises"
-  filtrerImagesParTag('Entreprises');
-
-
-//GenerateGallery(galleryitems);
+  
+generateGallery();
 
 
 /* BUTTONS FUNCTIONS */
@@ -42,11 +39,7 @@ const leftButton = document.querySelector(".leftArrow");
 const rightButton = document.querySelector(".rightArrow");
 
 btnAll.addEventListener("click", function(){
-    var images = document.getElementsByClassName('gallery-item');
-    for (var i = 0; i < images.length; i++) {
-        var image = images[i];
-        image.style.display = 'block';
-    }
+    generateGallery();
 });
 
 btnConcerts.addEventListener("click",function(){

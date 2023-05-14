@@ -27,7 +27,7 @@ function UpdateGallery(items){
     GenerateGallery(items);  
 };
 
-GenerateGallery(galleryitems);
+//GenerateGallery(galleryitems);
 
 
 /* BUTTONS FUNCTIONS */

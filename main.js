@@ -1,77 +1,68 @@
 /* GALLERY FUNCTIONS */
 
 const gallery = $(".gallery");
-const galleryitems = await $.getJSON("./assets/gallery.json");
-const generatedImages = []; // Tableau pour stocker les images générées
 
-function GenerateGallery(items) {
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    const img = new Image(); // Créer un nouvel objet Image
-    img.className = "gallery-item";
-    img.src = item.ImageURL; // Définir la source de l'image
-    img.alt = item.alt; // Définir l'attribut alt de l'image
-    img.width = "100%";
-    img.height = "auto";
-    // Ajouter l'image à la galerie une fois qu'elle est préchargée
-    img.onload = function() {
-      gallery.append(img);
-    };
-
-    generatedImages.push(img); // Ajouter l'image au tableau generatedImages
+// Fonction appelée lors du clic sur le bouton
+function filtrerImagesParTag(tag) {
+    // Sélectionner toutes les images de la galerie
+    var images = document.getElementsByClassName('gallery-item');
+    console.log(images);
+    // Parcourir toutes les images
+    for (var i = 0; i < images.length; i++) {
+      var image = images[i];
+      var imageTag = image.getAttribute('data-gallery-tag');
+      console.log(images[i]);
+      // Vérifier si le tag de l'image correspond au tag sélectionné
+      if (imageTag === tag) {
+        // Afficher l'image
+        image.style.display = 'block';
+      } else {
+        // Masquer l'image
+        image.style.display = 'none';
+      }
+    }
   }
-}
+  
+  // Exemple d'utilisation : filtrer les images ayant le tag "Entreprises"
+  filtrerImagesParTag('Entreprises');
 
-function UpdateGallery(items){
-    gallery.html("");
-    GenerateGallery(items);  
-};
 
 //GenerateGallery(galleryitems);
 
 
 /* BUTTONS FUNCTIONS */
 
-const btnAll = $(".btnAll");
-const btnConcerts = $(".btnConcerts");
-const btnEntreprises = $(".btnEntreprises");
-const btnMariages = $(".btnMariages");
-const btnPortraits = $(".btnPortraits");
+const btnAll = document.querySelector(".btnAll");
+const btnConcerts = document.querySelector(".btnConcerts");
+const btnEntreprises = document.querySelector(".btnEntreprises");
+const btnMariages = document.querySelector(".btnMariages");
+const btnPortraits = document.querySelector(".btnPortraits");
 
-const leftButton = $(".leftArrow");
-const rightButton = $(".rightArrow");
+const leftButton = document.querySelector(".leftArrow");
+const rightButton = document.querySelector(".rightArrow");
 
-btnAll.on("click", function(){
-    UpdateGallery(galleryitems);
-    return;
+btnAll.addEventListener("click", function(){
+    var images = document.getElementsByClassName('gallery-item');
+    for (var i = 0; i < images.length; i++) {
+        var image = images[i];
+        image.style.display = 'block';
+    }
 });
 
-btnConcerts.on("click",function(){
-    const list = galleryitems.filter(function(item){
-        return item.tag === "Concerts";
-    });
-    UpdateGallery(list);
+btnConcerts.addEventListener("click",function(){
+    filtrerImagesParTag('Concert');
 });
 
-btnEntreprises.on("click",function(){
-    const list = galleryitems.filter(function(item){
-        return item.tag === "Entreprises";
-    });
-    UpdateGallery(list);
+btnEntreprises.addEventListener("click",function(){
+    filtrerImagesParTag('Entreprises');
 });
 
-btnMariages.on("click",function(){
-    const list = galleryitems.filter(function(item){
-        return item.tag === "Mariages";
-    });
-    UpdateGallery(list);
+btnMariages.addEventListener("click",function(){
+    filtrerImagesParTag('Mariages');
 });
 
-btnPortraits.on("click",function(){
-    const list = galleryitems.filter(function(item){
-        return item.tag === "Portraits";
-    });
-    UpdateGallery(list);
+btnPortraits.addEventListener("click",function(){
+    filtrerImagesParTag('Portrait');
 });
 
 
@@ -80,46 +71,53 @@ btnPortraits.on("click",function(){
 
 /* CAROUSEL FUNCTIONS */
 
-const carousel = $(".carousel-inner");
-const carousel_img = $(".carousel-inner img");
+const carousel = document.querySelector(".carousel-inner");
+const carousel_img = document.querySelectorAll(".carousel-inner img");
 
-const imgSize = carousel_img.width();
-const maxSize = (carousel.children().length - 1) * imgSize;
+const imgSize = carousel_img[0].offsetWidth;
+const maxSize = (carousel.children.length - 1) * imgSize;
 
-var scrollInterval;
-var scrollValue = 0;
-const header = $("header");
+let scrollInterval;
+let scrollValue = 0;
+const header = document.querySelector("header");
 
-carousel.css("margin-top", header.height());
+carousel.style.marginTop = header.offsetHeight + "px";
 navigateButtons();
 playScrollAnimation();
 
+function navigateButtons() {
+  rightButton.addEventListener("click", function() {
+    scrollValue += imgSize;
+    if (scrollValue > maxSize) {
+      scrollValue = 0;
+    }
+    carousel.scrollTo({ left: scrollValue, behavior: 'smooth' });
+  });
 
-function navigateButtons(){
-    rightButton.on("click", function(){ 
-        scrollValue += imgSize ;
-        if (scrollValue > maxSize) { 
-            scrollValue = 0;
-        }
-        carousel.animate({ scrollLeft: scrollValue }, 0);  
-    }); 
-    leftButton.on("click", function(){ 
-        scrollValue -=imgSize;
-        if (scrollValue < 0) { 
-            scrollValue = maxSize;
-        }
-        carousel.animate({ scrollLeft: scrollValue }, 0);
-    });
-};
+  leftButton.addEventListener("click", function() {
+    scrollValue -= imgSize;
+    if (scrollValue < 0) {
+      scrollValue = maxSize;
+    }
+    carousel.scrollTo({ left: scrollValue, behavior: 'smooth' });
+  });
+}
 
 function playScrollAnimation() {
-    scrollInterval = setInterval(function(){
-        scrollValue += carousel_img.width(); 
-        if (scrollValue > maxSize) { 
-            scrollValue = 0;
-        }
-        carousel.animate({ scrollLeft: scrollValue }, 0); 
-    }, 5000); 
+  scrollInterval = setInterval(function() {
+    scrollValue += imgSize;
+    if (scrollValue > maxSize) {
+      scrollValue = 0;
+    }
+    carousel.scrollTo({ left: scrollValue, behavior: 'smooth' });
+  }, 5000);
 }
+
+
+
+
+
+
+
 
 

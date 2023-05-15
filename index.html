@@ -7,7 +7,16 @@
         <meta name="description" content="Blog de Nina Carducci, Photographe Professionnelle à Bordeaux">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="stylesheet" href="./assets/style.css">
+
+		<link rel="preload" href="./assets/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="./assets/style.css"></noscript>
+
+
+
+
+
+
+
         <script type="module" src="./main.js" async></script>
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +67,7 @@
 			</div>
 			<div id="about">
 				<div class="picture left">
-					<img src="./assets/images/nina.webp" alt="Photo de Nina Carducci dans la forêt" max-height="560px" max-width="560px">
+					<img src="./assets/images/nina.webp" alt="Photo de Nina Carducci dans la forêt" height=auto width=auto>
 				</div>
 				<div id="about-me">
 					<h2>A propos de moi</h2>

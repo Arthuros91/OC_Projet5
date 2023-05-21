@@ -348,6 +348,8 @@ input[type="submit"] {
 #infos{
 	display:none;
 }
+
+
 /* MEDIA QUERIES */ 
 
 @media all and (max-width: 1180px) {

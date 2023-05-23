@@ -1,30 +1,87 @@
-/* GALLERY FUNCTIONS */
+
+
+const carousel = document.querySelector("#carousel");
+const leftButton = document.querySelector(".leftArrow");
+const rightButton = document.querySelector(".rightArrow");
+const carouselIndicators = document.querySelectorAll('.carIndic');
 
 const gallery = document.querySelector(".gallery");
-const images = document.getElementsByClassName('gallery-item');
+const images = document.querySelectorAll('.gallery-item');
 
+let photoNumber = 0;
+let scrollInterval;
+
+/* Main */
+
+carousel.style.backgroundImage = "url('./assets/images/slider/0.webp')";
+changeColorButton();
+addNav();
+
+generateGallery();
+
+/* CAROUSEL FUNCTIONS */
+
+scrollInterval = setInterval(function(){
+    photoNumber++;
+    checkPhotoNumber();
+    changeColorButton();
+    carousel.style.backgroundImage = "url('./assets/images/slider/" + String(photoNumber) + ".webp')";  
+}, 5000);
+
+
+leftButton.addEventListener("click", function() {
+    photoNumber--;
+    checkPhotoNumber();
+    changeColorButton();
+    carousel.style.backgroundImage = "url('./assets/images/slider/" + String(photoNumber) + ".webp')";
+});
+
+rightButton.addEventListener("click", function() {
+    photoNumber++;
+    checkPhotoNumber();
+    changeColorButton();
+    carousel.style.backgroundImage = "url('./assets/images/slider/" + String(photoNumber) + ".webp')"; 
+});
+
+function checkPhotoNumber(){
+    if(photoNumber > 0){
+        photoNumber--;
+    } else{ photoNumber = 2};
+    if(photoNumber < 2){
+        photoNumber++;
+    } else{ photoNumber = 0};
+
+}
+
+function addNav(){
+    for( let j = 0; j<carouselIndicators.length; j++){
+        carouselIndicators[j].addEventListener("click",function(){
+            photoNumber = carouselIndicators[j].getAttribute("data-bs-slide-to");
+            carousel.style.backgroundImage = "url('./assets/images/slider/" + carouselIndicators[j].getAttribute("data-bs-slide-to") + ".webp')";
+            changeColorButton();
+        });
+    }
+}
+
+function changeColorButton(){
+    for( let j = 0; j<carouselIndicators.length; j++){
+        if(String(photoNumber) === carouselIndicators[j].getAttribute("data-bs-slide-to")){
+            carouselIndicators[j].style.backgroundColor = "white";    
+        } else { carouselIndicators[j].style.backgroundColor = "#898786"};
+
+    }
+
+}
+
+/* Gallery */ 
 
 function generateGallery(){
+
     for (var i = 0; i < images.length; i++) {
         var image = images[i];
         image.style.display = 'block';
     }
 }
-
-function filtrerImagesParTag(tag) {
-    for (var i = 0; i < images.length; i++) {
-      var image = images[i];
-      var imageTag = image.getAttribute('data-gallery-tag');
-      if (imageTag === tag) {
-        image.style.display = 'block';
-      } else {
-        image.style.display = 'none';
-      }
-    }
-}
-  
-  
-generateGallery();
 
 
 /* BUTTONS FUNCTIONS */
@@ -35,8 +92,17 @@ const btnEntreprises = document.querySelector(".btnEntreprises");
 const btnMariages = document.querySelector(".btnMariages");
 const btnPortraits = document.querySelector(".btnPortraits");
 
-const leftButton = document.querySelector(".leftArrow");
-const rightButton = document.querySelector(".rightArrow");
+function filtrerImagesParTag(tag) {
+    for (var i = 0; i < images.length; i++) {
+      var image = images[i];
+      var imageTag = image.getAttribute('data-gallery-tag');
+      if (imageTag === tag) {
+        image.style.display = 'grid';
+      } else {
+        image.style.display = 'none';
+      }
+    }
+}
 
 btnAll.addEventListener("click", function(){
     generateGallery();
@@ -57,60 +123,4 @@ btnMariages.addEventListener("click",function(){
 btnPortraits.addEventListener("click",function(){
     filtrerImagesParTag('Portrait');
 });
-
-
-
-
-
-/* CAROUSEL FUNCTIONS */
-
-const carousel = document.querySelector(".carousel-inner");
-const carousel_img = document.querySelectorAll(".carousel-inner img");
-
-const imgSize = carousel_img[0].offsetWidth;
-const maxSize = (carousel.children.length - 1) * imgSize;
-
-let scrollInterval;
-let scrollValue = 0;
-const header = document.querySelector("header");
-
-carousel.style.marginTop = header.offsetHeight + "px";
-navigateButtons();
-playScrollAnimation();
-
-function navigateButtons() {
-  rightButton.addEventListener("click", function() {
-    scrollValue += imgSize;
-    if (scrollValue > maxSize) {
-      scrollValue = 0;
-    }
-    carousel.scrollTo({ left: scrollValue, behavior: 'smooth' });
-  });
-
-  leftButton.addEventListener("click", function() {
-    scrollValue -= imgSize;
-    if (scrollValue < 0) {
-      scrollValue = maxSize;
-    }
-    carousel.scrollTo({ left: scrollValue, behavior: 'smooth' });
-  });
-}
-
-function playScrollAnimation() {
-  scrollInterval = setInterval(function() {
-    scrollValue += imgSize;
-    if (scrollValue > maxSize) {
-      scrollValue = 0;
-    }
-    carousel.scrollTo({ left: scrollValue, behavior: 'smooth' });
-  }, 5000);
-}
-
-
-
-
-
-
-
-
 
